@@ -1,43 +1,38 @@
-import logo from './platzi.webp'; /* habilitar el logo */
-import './App.css'; /* Habilitamos los estilos */
+import React from 'react';
+import { TodoCounter } from './TodoCounter';
+import { TodoSearch } from './TodoSearch';
+import { TodoList } from './TodoList';
+import { TodoItem } from './TodoItem';
+import { CreateTodoButton } from './CreateTodoButton';
+
+const defaultTodos = [
+  {text: 'Cortar cebolla', completed: true},
+  {text: 'Tomar el curso react.js', completed: false}, 
+  {text: 'Llorar con la llorona', completed: false},
+  {text: 'Pagar el agua', completed: false},
+  {text: 'lalaal', completed: false},
+];
 
 /* Componente REACT Nota: Los componentes con jsx (js + xml)react inician con Mayusculas*/
 function App() {
   return (
-    <div className="App">
+    <>
+      
+      <TodoCounter completed={16} total={25}/>
+      <TodoSearch/>
 
-      <TodoItem/>{/* El componente react To-doItem insertado como un elemento */}
-      <TodoItem/>
-      <TodoItem/>
+      <TodoList>
+        {defaultTodos.map(todo => (
+          <TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>
+        ))}
+      </TodoList>
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edita el archivo <code>src/App.js</code> y guarda para recargar.
-        </p>
-        <a
-          className="App-link"
-          href="https://platzi.com/reactjs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Aprendamos React
-        </a>
-      </header>
-    </div>
+      <CreateTodoButton/>
+    </>
   );
 }
 
-/* Componente React to-doItem */
-function TodoItem() {
-  return(
-    <li>
-      <span>V</span>
-        <p>Llorar con la llorona</p>
-      <span>X</span>
-    </li>
-  );
-}
+
   
 
 export default App;
