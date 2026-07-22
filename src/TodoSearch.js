@@ -2,12 +2,8 @@ import React from "react"; /* Importamos React */
 import './TodoSearch.css'; /* Habilitamos su css */
 
 /* Componente React to-do search */
-function TodoSearch() {
-
-  /* creamos un estado para lo que escriban los usuarios con valor inicial vacio*/
-  const [searchValue, setSearchValue] = React.useState(''); /* Manejamos el estado con useReactState */
-  
-  console.log('Los usuarios buscan todos de: ' + searchValue); /* Mostramos en consola lo que escriben los usuarios */
+/* Recibe props para manejo de estado de componente App (padre  ) */
+function TodoSearch({ searchValue, setSearchValue }) {
 
   return(
     <input 
