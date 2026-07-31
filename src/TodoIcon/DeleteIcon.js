@@ -1,5 +1,5 @@
 import React from 'react'; /* Habilitamos React */
-import { TodoIcon } from './TodoIcon'; /* Habilitamos el componente */
+import { TodoIcon } from './'; /* Habilitamos el componente */
 
 function DeleteIcon( { onDelete }){
   return(

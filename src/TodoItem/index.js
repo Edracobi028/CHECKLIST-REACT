@@ -1,6 +1,6 @@
 import './TodoItem.css'; /* Habilitamos su css */
-import { CompleteIcon } from './CompleteIcon'; /* Habilitamos el componenete */
-import { DeleteIcon } from './DeleteIcon'; /* Habilitamos el componenete */
+import { CompleteIcon } from '../TodoIcon/CompleteIcon'; /* Habilitamos el componenete */
+import { DeleteIcon } from '../TodoIcon/DeleteIcon'; /* Habilitamos el componenete */
 
 /* Componente React to-doItem */
 function TodoItem(props) {

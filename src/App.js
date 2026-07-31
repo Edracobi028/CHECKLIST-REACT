@@ -12,8 +12,7 @@ import { CreateTodoButton } from './CreateTodoButton';
   {text: 'Pagar el agua', completed: false},
   {text: 'Lavar el coche', completed: false},
 ]; 
-
-localStorage.setItem('CHECKLIST_V1', JSON.stringify(defaultTodos)); //Local Storage solo almacena strings, por eso usamos JSON.stringify para convertir el array en string
+localStorage.setItem('CHECKLIST_V1', JSON.stringify(defaultTodos)); 
 */
 
 //localStorage.removeItem('CHECKLIST_V1'); /* Eliminamos el localStorage para que no se guarde la informacion de los to-do´s */

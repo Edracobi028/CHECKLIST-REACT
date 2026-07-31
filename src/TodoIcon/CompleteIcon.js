@@ -1,5 +1,5 @@
 import React from 'react'; /* Habilitamos React */
-import { TodoIcon } from './TodoIcon'; /* Habilitamos el componenete */
+import { TodoIcon } from './'; /* Habilitamos el componenete */
 
 function CompleteIcon( {completed, onComplete} ){ /* Recibe para indicar el color segun su estado*/
   return(
