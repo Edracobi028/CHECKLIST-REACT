@@ -18,23 +18,37 @@ localStorage.setItem('CHECKLIST_V1', JSON.stringify(defaultTodos)); //Local Stor
 
 //localStorage.removeItem('CHECKLIST_V1'); /* Eliminamos el localStorage para que no se guarde la informacion de los to-do´s */
 
-/* Componente REACT Nota: Los componentes con jsx (js + xml)react inician con Mayusculas*/
-function App() {
-  /* === Estados === */
-  const localStorageTodos = localStorage.getItem('CHECKLIST_V1');       /* obtenemos las tareas del localStorage */
+/* === CUSTOM HOOK === */                                               /* Inician hooks de react con la palabra use  */
 
-  let parsedTodos;                                                      //inicializar
+/* custom hook que recibe el nombre de plantilla default de to-do's y valor inicial*/
+function useLocalStorage(itemName, initialValue){ 
+  
+  /* === ESTADOS === */
+  const localStorageItem = localStorage.getItem(itemName);             /* obtenemos las tareas del localStorage */
+  let parsedItem;                                                      //inicializar
 
-  if (!localStorageTodos){                                              //Si esta vacio creamos un array vacio y lo guardamos en el localStorage
-    localStorage.setItem('CHECKLIST_V1', JSON.stringify([]));           //local storage sea un array vacio stringifiado
-    parsedTodos = [];
-
+  if (!localStorageItem){                                               //Si esta vacio creamos un array vacio y lo guardamos en el localStorage
+    localStorage.setItem(itemName, JSON.stringify([]));                 //local storage sea un array vacio stringifiado
+    parsedItem = [];
   } else {
-    parsedTodos = JSON.parse(localStorageTodos);                        //PARSEAMOS el string del localStorage que encuentre
+    parsedItem = JSON.parse(localStorageItem);                          //PARSEAMOS el string del localStorage que encuentre
   }
 
+  const [item, setItem ] = React.useState(parsedItem);                  //estado del custom hook
 
-  const [todos, setTodos] = React.useState(parsedTodos);
+  /* Funcion que recibe nuevas tareas que actualice al estado y al localStorage */
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));            //Guarda en localstorage
+    setItem(newItem);                                                   //Guarda en estados
+  }
+  return [item, saveItem];                                              //regresamos los to-do´s y la funcion para guardarlos
+}
+
+/* Componente REACT Nota: Los componentes con jsx (js + xml)react inician con Mayusculas*/
+function App() {
+  /* === ESTADOS === */
+
+  const [todos, saveTodos] = useLocalStorage('CHECKLIST_V1', []);        /* Usamos el custom hook y enviamos el nombre y el estado */
   /* creamos un estado para lo que escriban los usuarios con valor inicial vacio*/
   const [searchValue, setSearchValue] = React.useState('');             /* Manejamos el estado con useReactState */
 
@@ -47,14 +61,8 @@ function App() {
     const searchText = searchValue.toLowerCase();                       /* obtenemos en minusculas la busqueda */
     return todoText.includes(searchText);                               /* devolvemos la coincidencia */
   });
-  /* === FUNCION === */
 
-  /* Funcion que reciba nuevas tareas que actualice al estado y al localStorage */
-  const saveTodos = (newTodos) => {
-    localStorage.setItem('CHECKLIST_V1', JSON.stringify(newTodos));     // Guarda en localstorage
-    setTodos(newTodos);                                                //Guarda en estados
-  }
-  
+  /* === FUNCIONES === */
   const completeTodo = (text) => {                                      /* Funcion para completar to-do´s */
     const newTodos = [...todos];                                        /* copia de todos los to-do´s */
     
