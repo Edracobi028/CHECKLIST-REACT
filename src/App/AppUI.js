@@ -1,3 +1,4 @@
+/* === COMPONENTE UI === */ 
 import React from 'react';
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
@@ -6,7 +7,7 @@ import { TodoItem } from '../TodoItem';
 import { CreateTodoButton } from '../CreateTodoButton';
 
 /* Recibe lo que se le envia desde index app  */
-function AppUI({ completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, deleteTodo }) {
+function AppUI({ loading, error, completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, deleteTodo }) {
 
     /* Muestra la interfaz de usuario */
     return (
@@ -18,6 +19,13 @@ function AppUI({ completedTodos, totalTodos, searchValue, setSearchValue, search
             />{/* Props para escuchar lo que busca el usuario    */}
 
             <TodoList>
+                {/* Mostrar mensaje segun su Estado y muestra cargando u error */}
+                {loading && <p>Estamos cargando, por favor espere...</p>}
+                {error && <p>Tenemos un error...</p>}
+
+                {/* Si no esta cargando y no hay tareas muestra msj */}
+                {(!loading && !searchedTodos.length) && <p>¡Crea tu primer tarea!</p>}
+
                 {/* Renderiza desde las to-do´s buscados */}
                 {searchedTodos.map(todo => (
                 <TodoItem 
