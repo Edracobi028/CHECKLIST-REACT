@@ -32,7 +32,7 @@ function useLocalStorage(itemName, initialValue){
     setError(true);                                                         //Si hay un error lo guardamos en el estado error
     console.error(error);                                                   //Mostramos el error en la consola
     }
-    },2000);
+    },4000);
 }, []);                                                                     // Se deja un array vacio para que el efecto se ejecute solo una vez al montar el componente
  
 

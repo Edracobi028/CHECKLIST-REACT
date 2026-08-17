@@ -4,6 +4,9 @@ import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
+import { TodosLoading } from '../TodosLoading';
+import { TodosError } from '../TodosError';
+import { EmptyTodos } from '../EmptyTodos';
 import { CreateTodoButton } from '../CreateTodoButton';
 
 /* Recibe lo que se le envia desde index app  */
@@ -13,18 +16,16 @@ function AppUI({ loading, error, completedTodos, totalTodos, searchValue, setSea
     return (
         <>
             <TodoCounter completed={completedTodos} total={totalTodos}/>
-            <TodoSearch 
+            <TodoSearch
                 searchValue={searchValue}
                 setSearchValue={setSearchValue}
             />{/* Props para escuchar lo que busca el usuario    */}
 
             <TodoList>
-                {/* Mostrar mensaje segun su Estado y muestra cargando u error */}
-                {loading && <p>Estamos cargando, por favor espere...</p>}
-                {error && <p>Tenemos un error...</p>}
-
-                {/* Si no esta cargando y no hay tareas muestra msj */}
-                {(!loading && !searchedTodos.length) && <p>¡Crea tu primer tarea!</p>}
+                
+                {loading && <><TodosLoading/><TodosLoading/><TodosLoading/><TodosLoading/></>}  {/* Si esta cargando aparece esto */}
+                {error && <TodosError/>}                                                        {/* Si hay un error aparece esto */}
+                {(!loading && !searchedTodos.length) && <EmptyTodos/>}                          {/* Si no hay tareas muestra esto */}
 
                 {/* Renderiza desde las to-do´s buscados */}
                 {searchedTodos.map(todo => (
