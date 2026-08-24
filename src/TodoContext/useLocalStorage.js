@@ -47,3 +47,18 @@ function useLocalStorage(itemName, initialValue){
 }
 
 export { useLocalStorage }; /* Export nombrado */
+
+/* 
+  localStorage.removeItem('CHECKLIST_V1');   //eliminamos el localStorage
+
+ const defaultTodos = [
+    {text: 'Llevar a caminar a garritas', completed: true},
+    {text: 'Tomar el curso react.js', completed: false}, 
+    {text: 'Surtir el super', completed: false},
+    {text: 'Pagar el agua', completed: false},
+    {text: 'Lavar el coche', completed: false},
+  ];
+
+  localStorage.setItem('CHECKLIST_V1', JSON.stringify(defaultTodos)); 
+  localStorage.getItem('CHECKLIST_V1');
+*/
