@@ -6,11 +6,10 @@ import { TodoProvider } from '../TodoContext'; /* Importamos el provider */
 function App() {
 
   return (
-    /* Enviamos info (props) a componente App UI */
-   
-   <TodoProvider>
-    <AppUI/> {/* Encapsulamos dentro del componente provider para que recibir props*/}
-   </TodoProvider>
+      
+    <TodoProvider>    {/* Enviamos info (props) a componente App UI */}
+      <AppUI/>        {/* Encapsulamos dentro del componente provider para que recibir props*/}
+    </TodoProvider>
    );
 }
 
