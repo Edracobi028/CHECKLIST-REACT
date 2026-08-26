@@ -19,6 +19,7 @@ function TodoProvider({children}){
 
     /* === ESTADOS === */
     const [searchValue, setSearchValue] = React.useState('');             /* estado para lo que escriban los usuarios con valor inicial vacio con useReactState */
+    const [openModal, setOpenModal] = React.useState(true);            /* estado para el abrir o cerrar el modal */
 
     /* === ESTADOS DERIVADOS === */
     const completedTodos = todos.filter(todo => !!todo.completed).length; /* Filtramos las tareas completadas y nos devuelve true o false (!!)*/
@@ -50,7 +51,18 @@ function TodoProvider({children}){
 
     return(
         /* Exponer en toda la app por la prop value */
-        <TodoContext.Provider value={{loading, error, completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, deleteTodo}}>
+        <TodoContext.Provider value={{
+            loading, 
+            error, 
+            completedTodos, 
+            totalTodos, 
+            searchValue, 
+            setSearchValue, 
+            searchedTodos, 
+            completeTodo, 
+            deleteTodo, 
+            openModal, 
+            setOpenModal}}>
             {children}
         </TodoContext.Provider>
     );

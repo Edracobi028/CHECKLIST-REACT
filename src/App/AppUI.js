@@ -1,5 +1,6 @@
 /* === COMPONENTE UI === */ 
 import React from 'react';
+import { Modal } from '../Modal';
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
@@ -13,7 +14,7 @@ import { TodoContext } from '../TodoContext'; /* Importamos el contexto */
 /* Recibe lo que se le envia desde index app  */
 function AppUI() {
 
-    const { loading, error, searchedTodos, completeTodo, deleteTodo } = React.useContext(TodoContext); /* Recibimos el contexto global de la aplicacion */
+    const { loading, error, searchedTodos, completeTodo, deleteTodo, openModal, setOpenModal } = React.useContext(TodoContext); /* Recibimos el contexto global de la aplicacion */
 
     /* Muestra la interfaz de usuario */
     return (
@@ -38,6 +39,12 @@ function AppUI() {
                     ))}
                 </TodoList>
             <CreateTodoButton/>
+            {/* Componente Modal con portal Js y un estado para cierre*/}
+            {openModal &&(
+                <Modal>
+                        La funcionalidad de agregar una tarea
+                </Modal>
+            )}
         </>
     );
 }
