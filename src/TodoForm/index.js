@@ -35,6 +35,7 @@ function TodoForm() {
             <textarea placeholder="Esta seria una nueva tarea" 
             value={newTodoValue}
             onChange={onChange}
+            required
             />
             <div className="TodoForm-buttonContainer">
                 <button className="TodoForm-button TodoForm-button--cancel" type="button" onClick={onCancel}>Cancelar</button>
