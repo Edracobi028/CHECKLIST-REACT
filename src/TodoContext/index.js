@@ -35,6 +35,12 @@ function TodoProvider({children}){
     });
 
     /* === FUNCIONES === */
+    const addTodo = (text) => {     
+        const newTodos = [...todos];                                        /* Funcion para agregar to-do´s */
+        newTodos.push({ text, completed: false });                          //agregar lo recibido al array de tareas 
+        saveTodos(newTodos);
+    }
+
     const completeTodo = (text) => {                                       /* Funcion para completar to-do´s */
         const newTodos = [...todos];                                        /* copia de todos los to-do´s */
         
@@ -58,7 +64,8 @@ function TodoProvider({children}){
             totalTodos, 
             searchValue, 
             setSearchValue, 
-            searchedTodos, 
+            searchedTodos,
+            addTodo,
             completeTodo, 
             deleteTodo, 
             openModal, 

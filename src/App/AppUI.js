@@ -1,6 +1,7 @@
 /* === COMPONENTE UI === */ 
 import React from 'react';
 import { Modal } from '../Modal';
+import { TodoForm } from '../TodoForm';
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
@@ -38,11 +39,11 @@ function AppUI() {
                     />
                     ))}
                 </TodoList>
-            <CreateTodoButton/>
+            <CreateTodoButton setOpenModal={setOpenModal}/>
             {/* Componente Modal con portal Js y un estado para cierre*/}
             {openModal &&(
                 <Modal>
-                        La funcionalidad de agregar una tarea
+                    <TodoForm/>
                 </Modal>
             )}
         </>
