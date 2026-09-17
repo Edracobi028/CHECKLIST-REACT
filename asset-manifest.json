@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/CHECKLIST-REACT/static/css/main.8836f31a.css",
-    "main.js": "/CHECKLIST-REACT/static/js/main.832df8d7.js",
+    "main.css": "/CHECKLIST-REACT/static/css/main.4bdd9c01.css",
+    "main.js": "/CHECKLIST-REACT/static/js/main.9b3bb35d.js",
     "index.html": "/CHECKLIST-REACT/index.html",
     "static/media/delete.svg": "/CHECKLIST-REACT/static/media/delete.7018c4465589031bd51c8efbe21df9ca.svg",
     "static/media/check.svg": "/CHECKLIST-REACT/static/media/check.e9a948bba52a34123d2ed7aeda0ea495.svg",
-    "main.8836f31a.css.map": "/CHECKLIST-REACT/static/css/main.8836f31a.css.map",
-    "main.832df8d7.js.map": "/CHECKLIST-REACT/static/js/main.832df8d7.js.map"
+    "main.4bdd9c01.css.map": "/CHECKLIST-REACT/static/css/main.4bdd9c01.css.map",
+    "main.9b3bb35d.js.map": "/CHECKLIST-REACT/static/js/main.9b3bb35d.js.map"
   },
   "entrypoints": [
-    "static/css/main.8836f31a.css",
-    "static/js/main.832df8d7.js"
+    "static/css/main.4bdd9c01.css",
+    "static/js/main.9b3bb35d.js"
   ]
 }
