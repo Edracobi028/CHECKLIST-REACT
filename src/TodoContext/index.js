@@ -41,11 +41,11 @@ function TodoProvider({children}){
         saveTodos(newTodos);
     }
 
-    const completeTodo = (text) => {                                       /* Funcion para completar to-do´s */
+    const completeTodo = (text) => {                                       /* Funcion para alternar el estado de un to-do */
         const newTodos = [...todos];                                        /* copia de todos los to-do´s */
         
         const todoIndex = newTodos.findIndex(todo => todo.text === text);   /* Obtenemos el indice del to-do a modificar */
-        newTodos[todoIndex].completed = true;                               /* Modificamos el estado del to-do a true (completado) */
+        newTodos[todoIndex].completed = !newTodos[todoIndex].completed;     /* Alternamos el estado de completado */
         saveTodos(newTodos);
     }
     const deleteTodo = (text) => {                                        /* Funcion para eliminar to-do´s */

@@ -5,7 +5,7 @@ import React from "react"; /* Importamos React */
 function EmptyTodos() {
 
   return(
-    <p>¡Crea tu primer tarea!</p>
+    <p className="TodoMessage">¡Crea tu primer tarea!</p>
   );
 }
 

@@ -9,13 +9,14 @@ import { TodoItem } from '../TodoItem';
 import { TodosLoading } from '../TodosLoading';
 import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
+import { TodosNotFound } from '../TodosNotFound';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { TodoContext } from '../TodoContext'; /* Importamos el contexto */
 
 /* Recibe lo que se le envia desde index app  */
 function AppUI() {
 
-    const { loading, error, searchedTodos, completeTodo, deleteTodo, openModal, setOpenModal } = React.useContext(TodoContext); /* Recibimos el contexto global de la aplicacion */
+    const { loading, error, totalTodos, searchedTodos, completeTodo, deleteTodo, openModal, setOpenModal } = React.useContext(TodoContext); /* Recibimos el contexto global de la aplicacion */
 
     /* Muestra la interfaz de usuario */
     return (
@@ -26,7 +27,8 @@ function AppUI() {
                     
                     {loading && <><TodosLoading/><TodosLoading/><TodosLoading/><TodosLoading/></>}  {/* Si esta cargando aparece esto */}
                     {error && <TodosError/>}                                                        {/* Si hay un error aparece esto */}
-                    {(!loading && !searchedTodos.length) && <EmptyTodos/>}                          {/* Si no hay tareas muestra esto */}
+                    {(!loading && !totalTodos) && <EmptyTodos/>}                                    {/* Si no hay tareas muestra esto */}
+                    {(!loading && totalTodos > 0 && !searchedTodos.length) && <TodosNotFound/>}     {/* Si la busqueda no coincide muestra esto */}
 
                     {/* Renderiza desde las to-do´s buscados */}
                     {searchedTodos.map(todo => (

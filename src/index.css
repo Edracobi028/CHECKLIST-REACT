@@ -11,3 +11,7 @@ body {
   position: relative;
   min-height: 100vh;
 }
+
+.TodoMessage {
+  text-align: center;
+}

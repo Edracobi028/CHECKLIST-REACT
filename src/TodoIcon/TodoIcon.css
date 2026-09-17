@@ -16,21 +16,56 @@
 
 .Icon-container-check--active {
     color: #4CAF50;
+    animation: check-complete 220ms ease-out;
+}
+
+.Icon-container-check--inactive {
+    animation: check-revert 220ms ease-out;
 }
 
 .Icon-container-delete {
     position: absolute;
-    top: -24px;
-    right:0;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #FCE4E4;
+    border-radius: 8px;
+    color: #C97878;
 }
 
 .Icon-container-delete:hover {
-    color: #F44336;
+    color: #A95454;
+    background-color: #F8D4D4;
 }
 
 .Icon-svg {
     width: 24px;
     height: 24px;
+    transition: fill 180ms ease;
+}
+
+@keyframes check-complete {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes check-revert {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.82);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .Icon-container-check:hover .Icon-svg {
@@ -38,5 +73,5 @@
 }
 
 .Icon-container-delete:hover .Icon-svg {
-    fill: #F44336;
+    fill: #A95454;
 }

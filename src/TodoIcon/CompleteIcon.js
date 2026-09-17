@@ -6,6 +6,7 @@ function CompleteIcon( {completed, onComplete} ){ /* Recibe para indicar el colo
     <TodoIcon 
         type="check"
         color={completed ? "green" : "gray"}
+      completed={completed}
         onClick={onComplete}
     />
   );
